@@ -11,16 +11,30 @@
 	<script src="libs/jquery/jquery-2.1.3.min.js"></script>
 	<script src="libs/owl-carousel/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
+	<script defer src="js/nav.js"></script>
+	
 
 </head>
 <body>
 	<header>
+
 		<div class="container">
+			<div class="nav-toggle">
+				  <div class="nav-toggle-bar"></div>
+				</div>
+				<nav class="nav">
+				  <ul >
+				    <li><a href="#">Home</a></li>
+				    <li><a href="#">Portfolio</a></li>
+				    <li><a href="#">About</a></li>
+				    <li><a href="#">Products</a></li>
+				  </ul>
+				</nav>
+			
 			<div id="headerMenu">
 				
 				<img  src="img/Rectangle.png" alt="Tadil" class="logo">				
-					
-				<img src="img/menu.png" alt="hamburger" class="menu">
+				
 			</div>
 			<div class="titles">
 				<div class="titles_first">
@@ -190,24 +204,23 @@
 		<div class="container">
 			<div style="display: flex;">
 				<div class="forma">
-					<form>
-						<div class="dws-input">
-							<input type="text" name="username" placeholder="Name*">
+					<?php
+        				if(!isset($_COOKIE['send'])){
+					 		echo "<form method='post' action='send.php'>
+						<div class='dws-input'>
+							<input type='text' name='email' placeholder='Email*'>
 						</div>
-						<div class="dws-input">
-							<input type="text" name="subject" placeholder="Subject*">
-						</div>
-						<div class="dws-input">
-
-							<input type="text" name="email" placeholder="Email*">
-						</div>
-						<div class="dws-input">
-							<input type="text" name="message" placeholder="Message*">
+						<div class='dws-input'>
+							<input type='text' name='feedback' placeholder='Feedback*'>
 						</div>
 							<br/>
-							<input class="dws-submit" type="submit" name="button" value="Send Message">
-						
-					</form>
+							<input class='dws-submit' type='submit'>
+					</form>";
+					}
+					else{
+						echo "Thanks for your response. We will contact with you in meantime";
+				}
+					?>
 
 				</div>
 				<div class="Address">
@@ -251,6 +264,5 @@
 			
 		</div>
 	</footer>
-
 </body>
 </html>
